@@ -442,9 +442,9 @@ function main() {
         '''
     
         code_text = Code(
-            code=code_str,
+            code_str,                # Pass code_str as a positional argument
             tab_width=4,
-            language="trilang", # Changed from "trilang" to "cpp"
+            language="trilang",          
             font_size=20,
             background="rectangle",
             style="monokai"
