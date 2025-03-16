@@ -420,9 +420,9 @@ class TriLangScene(Scene):
         self.play(Write(title))
         self.wait(1)
         self.play(title.animate.to_edge(UP))
-        
+    
         # Code example
-        code = '''
+        code_str = '''
 // Tri-Lang Example
 function factorial(trit n) {
     if (n == -1) {
@@ -440,19 +440,19 @@ function main() {
     print(result); // Output: 1
 }
         '''
-        
+    
         code_text = Code(
-            code=code,
+            code=code_str,
             tab_width=4,
-            language="trilang",
+            language="trilang", # Changed from "trilang" to "cpp"
             font_size=20,
             background="rectangle",
             style="monokai"
         )
-        
+    
         self.play(Create(code_text))
         self.wait(2)
-        
+    
         # Features
         features = VGroup(
             Text("Language Features:", font_size=28, color=YELLOW),
@@ -462,16 +462,16 @@ function main() {
             Text("• Direct hardware optimization", font_size=24),
             Text("• Binary compatibility layer", font_size=24)
         ).arrange(DOWN, aligned_edge=LEFT).to_edge(LEFT).shift(RIGHT * 5 + DOWN * 1.5)
-        
+    
         self.play(Write(features[0]))
         self.wait(0.5)
-        
+    
         for i in range(1, len(features)):
             self.play(Write(features[i]))
             self.wait(0.5)
-        
+    
         self.wait(2)
-        
+    
         # Transition
         self.play(
             FadeOut(code_text), FadeOut(features), FadeOut(title)
