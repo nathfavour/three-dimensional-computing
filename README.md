@@ -5,6 +5,8 @@ This repository contains research, design, and implementation details for a revo
 
 Unlike conventional computers that operate on binary digits (0s and 1s), this architecture introduces a three-state system (-1, 0, 1), enabling quantum-like capabilities while maintaining compatibility with classical computing paradigms.
 
+**Important Note**: Three-dimensional computing can be implemented on standard hardware through the Trifactory Engine, a sophisticated software layer that enables trinary computing capabilities without requiring specialized hardware components.
+
 ## Concept
 
 ### The Third Dimension in Computing
@@ -20,6 +22,7 @@ Traditional computing relies on binary logic - the presence or absence of electr
 - **Compatibility**: Works with existing computer architectures while extending their capabilities
 - **Accessibility**: Provides quantum-like advantages without specialized quantum hardware
 - **Scalability**: Can be incrementally adopted into existing systems
+- **Standard Hardware**: Functions on conventional computers through signal flattening and the Trifactory Engine
 
 ## Repository Structure
 

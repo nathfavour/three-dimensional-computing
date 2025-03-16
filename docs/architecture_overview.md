@@ -71,6 +71,19 @@ The -1 state serves two simultaneous purposes:
 
 This enables processors to dynamically switch between binary-compatible mode and full trinary mode based on computational requirements.
 
+### Signal Flattening
+
+Signal flattening is a zero-cost optimization technique that transforms trinary computing back to binary computing for everyday tasks:
+
+- **Zero Computational Overhead**: Flattening -1 to 1 occurs directly at the logic gate level with no additional processing steps
+- **Seamless Binary Compatibility**: Makes three-dimensional computing completely compatible with existing binary software
+- **Automatic Mode**: For most daily applications, flattening occurs by default, providing standard binary behavior
+
+Signal flattening enables:
+- Running standard binary applications without modification
+- Utilizing specialized trinary features only when explicitly required
+- Dynamic switching between flattened (binary) and full trinary modes with no performance penalty
+
 ## Hardware-Software Interface
 
 ### Compiler Technology

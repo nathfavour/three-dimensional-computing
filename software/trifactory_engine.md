@@ -4,6 +4,8 @@
 
 The Trifactory Engine is a low-level software engine that serves as the core translational layer between conventional binary computing and three-dimensional trinary computing. It enables efficient execution of resource-intensive applications by dynamically determining optimal representation and processing methods for data.
 
+**Important**: The Trifactory Engine is a purely software-based solution that runs on standard hardware with no specialized components required. It acts as a smart abstraction layer that enables three-dimensional computing capabilities on conventional binary computers.
+
 ## Core Capabilities
 
 ### Dynamic State Management
@@ -29,6 +31,21 @@ The engine translates between:
 
 This allows quantum-like algorithms to run on standard hardware using the three-state system to represent probabilistic states.
 
+### Signal Flattening
+
+Signal flattening is a core capability that enables seamless operation on standard binary hardware:
+
+- **Zero-Cost Binary Compatibility**: Automatically flattens -1 states to 1 for standard binary operations
+- **Context-Aware Processing**: Intelligently determines when to maintain trinary distinction and when to flatten
+- **Default Operating Mode**: Standard applications run in flattened mode for maximum compatibility
+
+```
+┌───────────────────┐     ┌─────────────┐
+│ Trinary Computing │ --> │ Flattening  │ --> Binary-Compatible Output
+│    [-1, 0, 1]     │     │ Layer       │     [0, 1]
+└───────────────────┘     └─────────────┘
+```
+
 ## Implementation Architecture
 
 ```
@@ -39,6 +56,7 @@ This allows quantum-like algorithms to run on standard hardware using the three-
 ┌───────────▼─────────────┐
 │   Trifactory Engine     │
 ├─────────────────────────┤
+│  Signal Flattening Unit │  ← New component
 │  State Management Unit  │
 │  Translation Layer      │
 │  Optimization Analyzer  │
@@ -46,7 +64,7 @@ This allows quantum-like algorithms to run on standard hardware using the three-
 └───────────┬─────────────┘
             │
 ┌───────────▼─────────────┐
-│    Hardware Layer       │
+│    Hardware Layer       │  ← Standard hardware (no modifications needed)
 └─────────────────────────┘
 ```
 
@@ -88,6 +106,22 @@ trifactory.applyTransformation(qRegister, transformationType);
 triword result = trifactory.measure(qRegister);
 ```
 
+### Signal Flattening Control
+
+```trilang
+// Enable signal flattening (default for most applications)
+trifactory.enableFlattening();
+
+// Disable flattening for trinary-specific operations
+trifactory.disableFlattening();
+
+// Check if value would be flattened in current mode
+boolean wouldFlatten = trifactory.isFlattened(tritValue);
+
+// Explicitly flatten a value for binary compatibility
+trit flattened = trifactory.flatten(tritValue);
+```
+
 ## Usage Examples
 
 ### 3D Simulation Optimization
@@ -113,3 +147,17 @@ When used for 3D simulations and VR applications, the Trifactory Engine demonstr
 - 35-40% reduction in memory usage
 - 25-30% improvement in render time
 - 45% reduction in computational resource requirements for physics simulations
+
+## Hardware Requirements
+
+The Trifactory Engine is designed to run on standard binary computing hardware:
+
+- No specialized processors required
+- No additional memory technologies needed
+- No custom circuit designs necessary
+
+The engine achieves three-dimensional computing through:
+- Efficient software abstraction
+- Low-level binary transformations
+- Intelligent resource management
+- Dynamic signal flattening
