@@ -441,18 +441,21 @@ function main() {
 }
         '''
     
+        # Modified Code initialization - removed font_size parameter
         code_text = Code(
-            code_str,                # Pass code_str as a positional argument
+            code_str,
             tab_width=4,
-            language="trilang",          
-            font_size=20,
+            language="trilang",
             background="rectangle",
             style="monokai"
         )
+        # Scale the code to desired size after creation
+        code_text.scale(0.8)
     
         self.play(Create(code_text))
         self.wait(2)
     
+        # Rest of the method remains unchanged
         # Features
         features = VGroup(
             Text("Language Features:", font_size=28, color=YELLOW),
