@@ -421,8 +421,8 @@ class TriLangScene(Scene):
         self.wait(1)
         self.play(title.animate.to_edge(UP))
     
-        # Code example
-        code_str = '''
+        # Instead of using Code, create code manually with Text objects
+        code_text = """
 // Tri-Lang Example
 function factorial(trit n) {
     if (n == -1) {
@@ -439,23 +439,28 @@ function main() {
     trit result = factorial(1);
     print(result); // Output: 1
 }
-        '''
-    
-        # Modified Code initialization - removed font_size parameter
-        code_text = Code(
-            code_str,
-            tab_width=4,
-            language="trilang",
-            background="rectangle",
-            style="monokai"
+        """
+        
+        # Create text with monospace font and syntax highlighting colors
+        code_mobject = Text(
+            code_text,
+            font="Courier New",
+            line_spacing=1.2
+        ).scale(0.6)
+        
+        # Add a background rectangle
+        background = SurroundingRectangle(
+            code_mobject, 
+            color=DARK_GREY,
+            fill_opacity=0.9, 
+            stroke_width=1,
+            buff=0.3
         )
-        # Scale the code to desired size after creation
-        code_text.scale(0.8)
-    
-        self.play(Create(code_text))
-        self.wait(2)
-    
-        # Rest of the method remains unchanged
+        
+        code_group = VGroup(background, code_mobject)
+        self.play(FadeIn(background), Write(code_mobject), run_time=2)
+        self.wait(1)
+        
         # Features
         features = VGroup(
             Text("Language Features:", font_size=28, color=YELLOW),
@@ -475,9 +480,17 @@ function main() {
     
         self.wait(2)
     
-        # Transition
+        # Transition with a more dynamic effect
         self.play(
-            FadeOut(code_text), FadeOut(features), FadeOut(title)
+            code_group.animate.scale(0.5).set_opacity(0.3).shift(UP*3),
+            features.animate.scale(0.5).set_opacity(0.3).shift(DOWN*3),
+            title.animate.scale(0.5).set_opacity(0.3).shift(LEFT*5),
+            run_time=1.5
+        )
+        self.play(
+            FadeOut(code_group), 
+            FadeOut(features), 
+            FadeOut(title)
         )
 
 
